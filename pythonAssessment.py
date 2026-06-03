@@ -1,11 +1,17 @@
-# Creating the function
-def count_specific_word(text,search_word):
+def count_specific_word(text, search_word):
     # converting letters to lowercase
     text = text.lower()
     search_word = search_word.lower()
 
+    # remove punctuation
+    clean_text = ""
+
+    for char in text:
+        if char.isalpha() or char == " ":
+            clean_text += char
+
     # splitting the texts into individual words
-    words = text.split()
+    words = clean_text.split()
 
     # count the occurences of a word
     count = words.count(search_word)
